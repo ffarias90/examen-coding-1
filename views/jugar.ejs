@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('templates/header', {titulo: "Lets Play"}) %>
+
+<body>
+
+    
+    <%- include('templates/menu') %>
+
+
+    <div class="container">
+
+
+        <h1 class="mt-4 mb-5">Lets Play!</h1>
+
+        <div class="row">
+            <div class="col-6 offset-2">
+
+                
+                <form action="/play" method="POST">
+                    
+                    <%  for (pregunta of preguntas)  { %>
+                        <h4 class="mt-4"><%=pregunta.pregunta %></h4>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input required type="radio" class="form-check-input" name="<%= pregunta.id%>" value="<%=pregunta.opcion1 %>">
+                                <%=pregunta.opcion1 %>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input required type="radio" class="form-check-input" name="<%= pregunta.id%>" value="<%=pregunta.opcion2 %>">
+                                <%=pregunta.opcion2 %>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input required type="radio" class="form-check-input" name="<%= pregunta.id%>" value="<%=pregunta.opcion3 %>">
+                                <%=pregunta.opcion3 %>
+                            </label>
+                        </div>
+                    <% } %>
+
+                    <button type="submit" class="btn btn-primary mt-5">Enviar</button>
+
+                </form>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('templates/header', {titulo: "Pantalla de Resultados" }) %>
+
+    <body>
+
+
+        <%- include('templates/menu') %>
+
+
+            <div class="container">
+
+                <% for( let r of resultado ) {%>
+
+                    <% if (r.res==0) { %>
+                        <div class="alert alert-danger text-center mt-3">Te fue Mal, <%=r.msg%>
+                        </div>
+                        <%}%>
+
+                            <% if ((r.res==1) || (r.res==2)) { %>
+                                <div class="alert alert-warning text-center mt-3">Salvado, <%=r.msg%>
+                                </div>
+                                <%}%>
+
+                                    <% if (r.res==3) { %>
+                                        <div class="alert alert-success text-center mt-3">Exelente!!!!, <%=r.msg%>
+                                        </div>
+                                        <%}%>
+
+                                            <% } %>
+
+
+
+
+                                                <div class="row">
+                                                    <div class="col-8 offset-2">
+                                                        <div class="jumbotron mt-4 text-center">
+                                                            <a class="btn btn-primary btn-lg" href="/play"
+                                                                role="button">Play!</a>
+                                                            <p>Click the button above to start the triving game</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <h4 class="mt-5">Tabla de Resultados</h4>
+
+                                                <form class="form-inline pull-right mb-3">
+                                                    <div class="form-group pull-right">
+                                                        <label class="mr-3" for="q">Search</label>
+                                                        <input type="text" name="q" id="q" class="form-control"
+                                                            placeholder="presionar enter">
+                                                    </div>
+                                                </form>
+
+                                                <table class="table table-bordered table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Usuario</th>
+                                                            <th>Puntaje</th>
+                                                            <th>Porcentaje</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <% for( let puntaje of puntajes ) {%>
+                                                            <tr>
+                                                                <td scope="row">
+                                                                    <%= puntaje.User.name%>
+                                                                </td>
+                                                                <td>
+                                                                    <%= puntaje.puntaje%>/3
+                                                                </td>
+                                                                <td>
+                                                                    <%= puntaje.porcentaje.toFixed(0)%>%
+                                                                </td>
+                                                            </tr>
+                                                            <% } %>
+                                                    </tbody>
+                                                </table>
+            </div>
+    </body>
+
+</html>

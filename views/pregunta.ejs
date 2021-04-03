@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('templates/header', {titulo: "Pagina Administrador Pro"}) %>
+
+<body>
+    
+    <%- include('templates/menu') %>
+
+    <div class="container">
+
+
+        <h1 class="mt-4 mb-5">Add a Question</h1>
+
+        <div class="row">
+            <div class="col-6 offset-2">
+
+                <form action="/new" method="POST">
+
+                    <div class="form-group row">
+                        <label for="question" class="col-4">Question</label>
+                        <div class="col-8">
+                            <textarea required minlength="15" id="question" name="question" class="form-control"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="correct" class="col-4">Anwser Correct</label>
+                        <div class="col-8">
+                            <input class="form-control" type="text" id="correct" name="answer" required >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="incorrect1" class="col-4">Fake Question 1</label>
+                        <div class="col-8">
+                            <input class="form-control" type="text" id="incorrect1" name="fake_one" required >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="incorrect2" class="col-4">Fake Question 2</label>
+                        <div class="col-8">
+                            <input class="form-control" type="text" id="incorrect2" name="fake_two" required >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-8 offset-sm-4">
+                            <button type="submit" class="btn btn-primary">Add Question</button>
+                            <a href="/" class="btn btn-danger">Cancelar</a>
+                        </div>
+                        
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
